@@ -11,7 +11,7 @@ def translate_symbol():
     slot_machine = st.session_state['slot_machine']
     display = ''
 
-    for i in range(3):
+    for i in range(translate_symbol.number_of_wheels):
         if slot_machine.wheels[i].current_symbol == 'A':
             display += ' :four_leaf_clover: '
         elif slot_machine.wheels[i].current_symbol == 'B':
