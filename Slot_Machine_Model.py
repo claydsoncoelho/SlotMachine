@@ -53,6 +53,12 @@ class Wheel:
     def __eq__(self, other):
         return self.current_symbol == other.current_symbol
 
+    def __mul__ (self, other):
+        result = []
+        for i in range(other):
+            result.append(self)
+        return result
+
     def spin(self):
         self.current_symbol = random.choice(self.symbol_list)
 
