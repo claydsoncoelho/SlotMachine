@@ -22,14 +22,13 @@ def play():
         slot_machine.play_slot_machine()
         if slot_machine.prize > 0:
             text1 = ':green[' + str(slot_machine.wheels_state) + '] :sunglasses:'
-            text2 = 'Prize:' + str(slot_machine.prize)
             st.title(text1)
-            st.title(text2)
         else:
             text1 = ':red[' + str(slot_machine.wheels_state) + '] :sob:'
-            text2 = 'Prize:' + str(slot_machine.prize)
             st.title(text1)
-            st.title(text2)
+
+        st.title('Prize:' + str(slot_machine.prize))
+        st.title('Balance: ' + str(slot_machine.current_balance))
 
         chart_data = pd.DataFrame(
             {
@@ -40,9 +39,12 @@ def play():
         chart_data.sort_values(by=['Performance'])
         st.bar_chart(chart_data, x="Performance", y="Money")
 
-        st.title('Performance: ' + str(slot_machine.performance) +'%')
-
-    st.title('Balance: ' + str(slot_machine.current_balance))
+        if slot_machine.performance > 0:
+            text1 = 'Performance: :green[' + str(slot_machine.performance) + '] % :sunglasses:'
+            st.title(text1)
+        else:
+            text1 = 'Performance: :red[' + str(slot_machine.performance) + '] % :sunglasses:'
+            st.title(text1)
 
 
 deposit = st.number_input('Deposit money')
@@ -57,4 +59,4 @@ if st.button('Bet'):
 
 
 if st.button('Reset'):
-    st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(deposit)
+    st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
