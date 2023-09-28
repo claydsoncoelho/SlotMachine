@@ -60,10 +60,10 @@ col1, col2, col3 = st.columns(3)
 
 # addin objects to controller container
 deposit = col1_controller.number_input('Deposit money')
-if col1_controller.button('Deposit'):
+if col2_controller.button('Deposit'):
     make_deposit(deposit)
 
-bet = col2_controller.number_input('Bet amount')
+bet = col1_controller.number_input('Bet amount')
 
 if col2_controller.button('Bet'):
     play()
