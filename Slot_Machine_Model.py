@@ -57,7 +57,7 @@ class Wheel:
         result = []
         if isinstance(other, int):
             for i in range(other):
-                result.append(Wheel())
+                result.append('1')
         return result
 
     def spin(self):
