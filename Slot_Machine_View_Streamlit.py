@@ -33,11 +33,11 @@ def play():
 
         chart_data = pd.DataFrame(
             {
-                "Performance": ["Initial", "Current"],
+                "Performance": ["Current", "Initial"],
                 "Money": [slot_machine.initial_balance, slot_machine.current_balance]
             }
         )
-        chart_data.sort_values(by=['Performance'], ascending=True)
+        chart_data.sort_values(by=['Performance'])
         st.bar_chart(chart_data, x="Performance", y="Money")
 
     st.title('Balance: ' + str(slot_machine.current_balance))
