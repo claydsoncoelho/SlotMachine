@@ -6,7 +6,7 @@ slot_machine = Slot_Machine_Model.SlotMachine(100)
 def create_slot_machine():
     st.write('clay')
 
-deposit = st.number_input('Depisit money', on_change='create_slot_machine')
+deposit = st.number_input('Depisit money', on_change=create_slot_machine)
 st.write('The current balance is ', deposit)
 
 
