@@ -29,8 +29,6 @@ def make_deposit(initial):
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
 
-    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
-
 
 def play():
     slot_machine = st.session_state['slot_machine']
@@ -52,6 +50,10 @@ def play():
     print_performance()
 
 
+st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
 
 deposit = st.number_input('Deposit money')
 
