@@ -9,6 +9,12 @@ performance_container = st.container()
 
 
 def translate_symbol():
+    """
+        To turn thing visually more attractive, this function will replace the original symbols in the config file by emojis. 
+        A new random dictionary, symbols_dict, will be created every time this function is called.
+        Symbols_dict will have a key value pair equals “Old_Key”: “New random value”.
+        The random value will be chosen from new_symbols list, which is a list of emojis.
+    """
     slot_machine = st.session_state['slot_machine']
     display = ''
     new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ', ' :hot_pepper: ', ' :corn: ', ' :maple_leaf: ', ' :grapes: ', ' :peach: ']
@@ -17,9 +23,9 @@ def translate_symbol():
     symbols_dict = {}
 
     for i in range(len(key_list)):
+        #new_symbols.pop() is used because once an emoji is chosen, it will be removed from new_symbols list, avoiding it to be chosen again.
+        #random.choicec() will choose a number between 0 and the lenght of the new_symbols list, which will be the index of the chosen emoji.
         symbols_dict[key_list[i]] = new_symbols.pop(random.choice(range(len(new_symbols))))
-    
-    st.title(symbols_dict)
 
     for symbol in slot_machine.wheels_state:
         display += symbols_dict[symbol]
