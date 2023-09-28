@@ -36,7 +36,7 @@ def print_performance():
 
 def make_deposit(initial):
     if 'slot_machine' not in st.session_state:
-        st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(initial, 4)
+        st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(initial, 3)
     else:
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
@@ -70,5 +70,5 @@ if controller_container.button('Bet'):
     play()
 
 if controller_container.button('Reset'):
-    st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0, 4)
+    st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0, 3)
     controller_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
