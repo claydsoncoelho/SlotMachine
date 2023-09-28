@@ -4,7 +4,7 @@ import Slot_Machine_Model
 
 controller_container = st.container()
 display_container = st.container()
-performance_container = st.conta()
+performance_container = st.container()
 
 
 def translate_symbol():
