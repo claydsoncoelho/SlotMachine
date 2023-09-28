@@ -71,15 +71,15 @@ class SlotMachine:
 		1 – play(): This method spins all the 3 wheels of the slot machine, 
           get the new current_symbol of each wheel and save them in wheels_state attribute.
     """
-    def __init__(self, initial_balance: float, wheels_quantity: int):
+    def __init__(self, initial_balance: float, number_of_wheels: int):
         self.initial_balance = initial_balance
         self.current_balance = initial_balance
         self.wheels = [Wheel(), Wheel(), Wheel()]
-        self.wheels_state: list = [str * wheels_quantity]
+        self.wheels_state: list = [str * number_of_wheels]
         self.prize = 0
         self.bet = 0
         self.performance = 100
-	self.wheels_quantity = wheels_quantity
+	self.wheels_quantity = number_of_wheels
 
     @property
     def bet(self):
@@ -104,7 +104,7 @@ class SlotMachine:
 
     def play_slot_machine(self) :
         # Method that spins all wheels, updates the wheels_state and calls the _calculate_balance.
-        for i in range(self.wheels_quantity):
+        for i in range(self.number_of_wheels):
             self.wheels[i].spin()
             self.wheels_state[i] = self.wheels[i].current_symbol
         self.__calculate_balance()
