@@ -1,6 +1,26 @@
 import streamlit as st
-import Slot_Machine_Model
 import pandas as pd
+import Slot_Machine_Model
+
+
+def print_performance():
+    slot_machine = st.session_state['slot_machine']
+    chart_data = pd.DataFrame(
+            {
+                "Performance": ["Deposit", "Final"],
+                "Money": [slot_machine.initial_balance, slot_machine.current_balance]
+            }
+        )
+    chart_data.sort_values(by=['Performance'])
+    st.bar_chart(chart_data, x="Performance", y="Money")
+
+    if slot_machine.performance > 0:
+        text1 = 'Performance: :green[' + str(slot_machine.performance) + '] % :sunglasses:'
+        st.title(text1)
+    else:
+        text1 = 'Performance: :red[' + str(slot_machine.performance) + '] % :sunglasses:'
+        st.title(text1)
+
 
 def make_deposit(initial):
     if 'slot_machine' not in st.session_state:
@@ -10,6 +30,7 @@ def make_deposit(initial):
         st.session_state['slot_machine'].current_balance += initial
 
     st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    print_performance()
 
 
 def play():
@@ -29,22 +50,8 @@ def play():
 
         st.title('Prize:' + str(slot_machine.prize))
         st.title('Balance: ' + str(slot_machine.current_balance))
-
-        chart_data = pd.DataFrame(
-            {
-                "Performance": ["Deposit", "Final"],
-                "Money": [slot_machine.initial_balance, slot_machine.current_balance]
-            }
-        )
-        chart_data.sort_values(by=['Performance'])
-        st.bar_chart(chart_data, x="Performance", y="Money")
-
-        if slot_machine.performance > 0:
-            text1 = 'Performance: :green[' + str(slot_machine.performance) + '] % :sunglasses:'
-            st.title(text1)
-        else:
-            text1 = 'Performance: :red[' + str(slot_machine.performance) + '] % :sunglasses:'
-            st.title(text1)
+    print_performance()
+        
 
 
 deposit = st.number_input('Deposit money')
