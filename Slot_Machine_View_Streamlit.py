@@ -17,7 +17,7 @@ def translate_symbol():
     symbols_dict = {}
 
     for i in range(len(key_list)):
-        symbols_dict[key_list[i]] = new_symbols.pop(random.choice(len(new_symbols)))
+        symbols_dict[key_list[i]] = new_symbols.pop(random.choice(range(len(new_symbols))))
     
     st.title(symbols_dict)
 
