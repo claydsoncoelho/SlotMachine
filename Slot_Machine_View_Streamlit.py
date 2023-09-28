@@ -50,14 +50,10 @@ def play():
     print_performance()
 
 
-st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
+deposit = st.sidebar.number_input('Deposit money')
 
-deposit = st.number_input('Deposit money')
 
-if st.button('Deposit'):
+if st.sidebar.button('Deposit'):
     make_deposit(deposit)
 
 bet = st.number_input('Bet amount')
