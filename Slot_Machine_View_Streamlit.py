@@ -37,7 +37,7 @@ def play():
                 "Money": [slot_machine.initial_balance, slot_machine.current_balance]
             }
         )
-        chart_data.sort_values(by=['Performance'], ascending=False)
+        chart_data.sort_values(by=['Performance'], ascending=True)
         st.bar_chart(chart_data, x="Performance", y="Money")
 
     st.title('Balance: ' + str(slot_machine.current_balance))
