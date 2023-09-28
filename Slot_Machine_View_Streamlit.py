@@ -15,10 +15,10 @@ def print_performance():
     st.bar_chart(chart_data, x="Performance", y="Money")
 
     if slot_machine.performance > 0:
-        text1 = 'Performance: :green[' + str(slot_machine.performance) + '] % :sunglasses:'
+        text1 = 'Performance: :green[' + "{:.2f}".format((slot_machine.performance)) + '] % :sunglasses:'
         st.title(text1)
     else:
-        text1 = 'Performance: :red[' + str(slot_machine.performance) + '] % :sunglasses:'
+        text1 = 'Performance: :red[' + "{:.2f}".format((slot_machine.performance)) + '] % :sunglasses:'
         st.title(text1)
 
 
