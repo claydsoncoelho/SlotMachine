@@ -42,10 +42,10 @@ def play():
         slot_machine.bet = bet
         slot_machine.play_slot_machine()
         if slot_machine.prize > 0:
-            text1 = ':green[' + str(slot_machine.wheels_state) + '] :sunglasses:'
+            text1 = ':green[' + slot_machine.wheels[0].current_symbol + slot_machine.wheels[1].current_symbol + slot_machine.wheels[2].current_symbol + '] :sunglasses:'
             st.title(text1)
         else:
-            text1 = ':red[' + str(slot_machine.wheels_state) + '] :sob:'
+            text1 = ':red[' + slot_machine.wheels[0].current_symbol + slot_machine.wheels[1].current_symbol + slot_machine.wheels[2].current_symbol + '] :sob:'
             st.title(text1)
 
         st.title('Prize:' + str(slot_machine.prize))
