@@ -67,4 +67,4 @@ if st.sidebar.button('Bet'):
 
 if st.sidebar.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
-    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    balance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
