@@ -21,6 +21,7 @@ def translate_symbol():
 
 def print_performance():
     slot_machine = st.session_state['slot_machine']
+    """
     chart_data = pd.DataFrame(
             {
                 "Performance": ["Deposit", "Final"],
@@ -29,13 +30,14 @@ def print_performance():
         )
     chart_data.sort_values(by=['Performance'])
     st.bar_chart(chart_data, x="Performance", y="Money")
+    """
 
     if slot_machine.performance > 0:
         text1 = f'Performance: :green[{slot_machine.performance:.2f}] % :sunglasses:'
-        st.title(text1)
+        st.write(text1)
     else:
         text1 = f'Performance: :red[{slot_machine.performance:.2f}] % :sob:'
-        st.title(text1)
+        st.write(text1)
 
 
 def make_deposit(initial):
@@ -45,21 +47,21 @@ def make_deposit(initial):
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
 
-    balance_container.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    balance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 def play():
     slot_machine = st.session_state['slot_machine']
 
     if bet > slot_machine.current_balance:
-        st.title('Bet cannot be bigger than balance!')
+        st.wirte('Bet cannot be bigger than balance!')
     else:
         slot_machine.bet = bet
         slot_machine.play_slot_machine()
         st.title(translate_symbol())
-        st.title('Prize:' + str(slot_machine.prize))
+        st.write('Prize:' + str(slot_machine.prize))
 
-    balance_container.title('Balance: ' + str(slot_machine.current_balance))
+    balance_container.write('Balance: ' + str(slot_machine.current_balance))
     print_performance()
 
 
@@ -76,4 +78,4 @@ if controller_container.button('Bet'):
 
 if controller_container.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
-    balance_container.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    balance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
