@@ -55,8 +55,9 @@ class Wheel:
 
     def __mul__ (self, other: int):
         result = []
-        for i in range(other):
-            result.append(Wheel())
+        if isinstance(other, int):
+            for i in range(other):
+                result.append(Wheel())
         return result
 
     def spin(self):
