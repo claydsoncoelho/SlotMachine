@@ -1,5 +1,6 @@
 import streamlit as st
 import Slot_Machine_Model
+import pandas as pd
 
 def make_deposit(initial):
     if 'slot_machine' not in st.session_state:
@@ -29,6 +30,15 @@ def play():
             text2 = 'Prize:' + str(slot_machine.prize)
             st.title(text1)
             st.title(text2)
+
+            chart_data = pd.DataFrame(
+            {
+                "Deposit": 10,
+                "Balance": 20
+            }
+)
+
+st.bar_chart(chart_data, x="Deposit", y="Balance")
 
     st.title('Balance: ' + str(slot_machine.current_balance))
 
