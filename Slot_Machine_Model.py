@@ -63,22 +63,23 @@ class SlotMachine:
 	Attributes:
 		1 – initial_balance: How much money the user deposited in the machine.
 		2 – current_balance: How much money the user has inside the machine.
-		3 – wheels: A list of 3 Wheels objects described above.
-		4 – wheels_state: A list of 3 current_symbols of the 3 wheels.
+		3 – wheels: A list of Wheel objects described above.
+		4 – wheels_state: A list of current_symbols on each wheel.
 		5 – prize: How much money the user won as a prize. It’s 0 if the user didn’t win on that round.
 		6 – bet: How much money the user bet on that round.
     Methods:
 		1 – play(): This method spins all the 3 wheels of the slot machine, 
           get the new current_symbol of each wheel and save them in wheels_state attribute.
     """
-    def __init__(self, initial_balance: float):
+    def __init__(self, initial_balance: float, wheels_quantity: int):
         self.initial_balance = initial_balance
         self.current_balance = initial_balance
         self.wheels = [Wheel(), Wheel(), Wheel()]
-        self.wheels_state: list = [str * 3]
+        self.wheels_state: list = [str * wheels_quantity]
         self.prize = 0
         self.bet = 0
         self.performance = 100
+	self.wheels_quantity = wheels_quantity
 
     @property
     def bet(self):
@@ -93,7 +94,7 @@ class SlotMachine:
     def __calculate_balance(self):
         # Internal method that calculates the current_balance, 
         # the prize and the performance depending if the user won or lost this round
-        if self.wheels[0] == self.wheels[1] and self.wheels[1] == self.wheels[2]:
+        if legth(set(self.wheels_state)) == 1:
             self.prize = self.bet * self.wheels[0].symbol_prize[self.wheels[0].current_symbol]
             self.current_balance += self.bet + self.prize
         else:
@@ -102,8 +103,8 @@ class SlotMachine:
         self.performance = (self.current_balance - self.initial_balance) / self.initial_balance * 100
 
     def play_slot_machine(self) :
-        # Method that spins all 3 wheels, updates the wheels_state and calls the _calculate_balance.
-        for i in range(3):
+        # Method that spins all wheels, updates the wheels_state and calls the _calculate_balance.
+        for i in range(self.wheels_quantity):
             self.wheels[i].spin()
             self.wheels_state[i] = self.wheels[i].current_symbol
         self.__calculate_balance()
