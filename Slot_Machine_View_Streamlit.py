@@ -21,16 +21,8 @@ def translate_symbol():
 
 def print_performance():
     slot_machine = st.session_state['slot_machine']
-    """
-    chart_data = pd.DataFrame(
-            {
-                "Performance": ["Deposit", "Final"],
-                "Money": [slot_machine.initial_balance, slot_machine.current_balance]
-            }
-        )
-    chart_data.sort_values(by=['Performance'])
-    st.bar_chart(chart_data, x="Performance", y="Money")
-    """
+    
+    st.write('Deposit:', str(ot_machine.initial_balance))
 
     if slot_machine.performance > 0:
         text1 = f'Performance: :green[{slot_machine.performance:.2f}] % :sunglasses:'
