@@ -57,9 +57,6 @@ def play():
     print_performance()
 
 
-col1, col2, col3 = st.columns(3)
-
-
 # addin objects to controller container
 deposit = controller_container.number_input('Deposit money')
 
@@ -76,4 +73,4 @@ if controller_container.button('Reset'):
     col2.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
-
+col1, col2, col3 = st.columns(3)
