@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import Slot_Machine_Model
 
-controller_container = st.container()
+col1_controller, col2_controller = st.columns(2)
 
 
 def translate_symbol():
@@ -59,16 +59,16 @@ def play():
 col1, col2, col3 = st.columns(3)
 
 # addin objects to controller container
-deposit = controller_container.number_input('Deposit money')
-if controller_container.button('Deposit'):
+deposit = col1_controller.number_input('Deposit money')
+if col1_controller.button('Deposit'):
     make_deposit(deposit)
 
-bet = controller_container.number_input('Bet amount')
+bet = col2_controller.number_input('Bet amount')
 
-if controller_container.button('Bet'):
+if col2_controller.button('Bet'):
     play()
 
-if controller_container.button('Reset'):
+if col2_controller.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
     col2.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
