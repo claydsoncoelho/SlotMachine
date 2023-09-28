@@ -6,6 +6,7 @@ def make_deposit(initial):
         st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(initial)
     else:
         st.session_state['slot_machine'].initial_balance += initial
+        st.session_state['slot_machine'].current_balance += initial
 
     st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
