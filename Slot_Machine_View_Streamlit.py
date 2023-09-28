@@ -16,7 +16,7 @@ def print_performance():
     st.bar_chart(chart_data, x="Performance", y="Money")
 
     if slot_machine.performance > 0:
-        text1 = 'Performance: :red[{slot_machine.performance:.2f}] % :sunglasses:'
+        text1 = f'Performance: :red[{slot_machine.performance:.2f}] % :sunglasses:'
         st.title(text1)
     else:
         text1 = f'Performance: :red[{slot_machine.performance:.2f}] % :sob:'
@@ -67,4 +67,4 @@ if st.sidebar.button('Bet'):
 
 if st.sidebar.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
-    balance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    balance_container.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
