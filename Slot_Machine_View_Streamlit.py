@@ -29,9 +29,13 @@ def make_deposit(initial):
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
 
+    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+
 
 def play():
     slot_machine = st.session_state['slot_machine']
+
+    st.title('Balance: ' + str(slot_machine.current_balance))
 
     if bet > slot_machine.current_balance:
         st.title('Bet cannot be bigger than balance!')
@@ -48,10 +52,6 @@ def play():
         st.title('Prize:' + str(slot_machine.prize))
     print_performance()
 
-if 'slot_machine' in st.session_state:
-    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
-else:
-    st.title('Balance: 0')
 
 # sidebar
 deposit = st.sidebar.number_input('Deposit money')
@@ -66,3 +66,4 @@ if st.sidebar.button('Bet'):
 
 if st.sidebar.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
+    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
