@@ -68,9 +68,9 @@ bet = col1_controller.number_input('Bet amount')
 if col2_controller.button('Bet'):
     play()
 
-if col2_controller.button('Reset'):
+if st.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
-    st.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    col2.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 
