@@ -4,6 +4,20 @@ import Slot_Machine_Model
 
 balance_container = st.container()
 
+def translate_symbol():
+    slot_machine = st.session_state['slot_machine']
+    display = []
+
+    for i in range(3):
+        if slot_machine.wheels[i].current_symbol == 'A':
+            display.append(' :four_leaf_clover: ')
+        elif slot_machine.wheels[i].current_symbol == 'B':
+            display.append(' :taco: ')
+        else:
+            display.append(':watermelon:')
+        
+    return display
+
 def print_performance():
     slot_machine = st.session_state['slot_machine']
     chart_data = pd.DataFrame(
@@ -41,13 +55,7 @@ def play():
     else:
         slot_machine.bet = bet
         slot_machine.play_slot_machine()
-        if slot_machine.prize > 0:
-            text1 = ':green[' + slot_machine.wheels[0].current_symbol + slot_machine.wheels[1].current_symbol + slot_machine.wheels[2].current_symbol + '] :sunglasses:'
-            st.title(text1)
-        else:
-            text1 = ':red[' + slot_machine.wheels[0].current_symbol + slot_machine.wheels[1].current_symbol + slot_machine.wheels[2].current_symbol + '] :sob:'
-            st.title(text1)
-
+        st.title(translate_symbol())
         st.title('Prize:' + str(slot_machine.prize))
 
     balance_container.title('Balance: ' + str(slot_machine.current_balance))
