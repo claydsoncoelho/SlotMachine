@@ -3,7 +3,7 @@ import pandas as pd
 import Slot_Machine_Model
 
 balance_container = st.container()
-botton_container = st.container()
+controller_container = st.container()
 
 def translate_symbol():
     slot_machine = st.session_state['slot_machine']
@@ -64,16 +64,16 @@ def play():
 
 
 # bottom container
-deposit = botton_container.number_input('Deposit money')
+deposit = controller_container.number_input('Deposit money')
 
-if botton_container.button('Deposit'):
+if controller_container.button('Deposit'):
     make_deposit(deposit)
 
-bet = botton_container.number_input('Bet amount')
+bet = controller_container.number_input('Bet amount')
 
-if sbotton_container.button('Bet'):
+if controller_container.button('Bet'):
     play()
 
-if botton_container.button('Reset'):
+if controller_container.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
     balance_container.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
