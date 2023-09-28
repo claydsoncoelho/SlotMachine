@@ -15,9 +15,9 @@ slot_machine.play_slot_machine()
 
 if slot_machine.prize > 0:
     st.title('_Streamlit_ is :blue[cool] :sunglasses:')
-    st.title(':green['+'slot_machine.wheels' + '] :sunglasses:')
-    st.title('Prize:', slot_machine.prize)
+    st.title(':green['+slot_machine.wheels + '] :sunglasses:')
+    st.title('Prize:' + slot_machine.prize)
 else:
     st.title('_Streamlit_ is :red[cool] :sunglasses:')
-    st.title(':red['+'slot_machine.wheels' + '] :sob:')
-    st.title('Prize:', slot_machine.prize)
+    st.title(':red['+ slot_machine.wheels + '] :sob:')
+    st.title('Prize:' + slot_machine.prize)
