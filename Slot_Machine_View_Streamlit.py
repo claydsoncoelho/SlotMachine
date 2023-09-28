@@ -1,7 +1,7 @@
 import streamlit as st
 import Slot_Machine_Model
 
-slot_machine = Slot_Machine_Model.SlotMachine(0)
+slot_machine = Slot_Machine_Model.SlotMachine(100)
 
 deposit = st.number_input('Depisit money')
 st.write('The current balance is ', deposit)
