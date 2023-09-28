@@ -50,17 +50,16 @@ def play():
     print_performance()
 
 
+# sidebar
 deposit = st.sidebar.number_input('Deposit money')
-
 
 if st.sidebar.button('Deposit'):
     make_deposit(deposit)
 
-bet = st.number_input('Bet amount')
+bet = st.sidebar.number_input('Bet amount')
 
-if st.button('Bet'):
+if st.sidebar.button('Bet'):
     play()
 
-
-if st.button('Reset'):
+if st.sidebar.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
