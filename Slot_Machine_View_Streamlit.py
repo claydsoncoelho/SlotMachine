@@ -3,12 +3,11 @@ import Slot_Machine_Model
 
 slot_machine = Slot_Machine_Model.SlotMachine(100)
 
-def create_slot_machine():
-    st.write(deposit)
-
 deposit = st.number_input('Depisit money', on_change=create_slot_machine)
 st.write('The current balance is ', deposit)
 
+def create_slot_machine():
+    st.write(deposit)
 
 bet = st.number_input('Bet amount')
 st.write('The current bet is ', bet)
