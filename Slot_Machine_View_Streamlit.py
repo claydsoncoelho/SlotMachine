@@ -1,9 +1,14 @@
 import streamlit as st
 import Slot_Machine_Model
 
-def create_slot_machine(initial):
+def make_deposit(initial):
     if 'slot_machine' not in st.session_state:
         st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(initial)
+    else:
+        st.session_state['slot_machine'].initial_balance += initial
+
+    st.title('Balance: ' + str(slot_machine.current_balance))
+
 
 def play():
     slot_machine = st.session_state['slot_machine']
@@ -30,7 +35,7 @@ def play():
 deposit = st.number_input('Deposit money')
 
 if st.button('Deposit'):
-    create_slot_machine(deposit)
+    make_deposit(deposit)
 
 bet = st.number_input('Bet amount')
 
