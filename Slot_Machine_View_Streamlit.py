@@ -34,7 +34,7 @@ def play():
         chart_data = pd.DataFrame(
             {
                 "Performance": ["Current", "Initial"],
-                "Money": [slot_machine.initial_balance, slot_machine.current_balance]
+                "Money": [slot_machine.current_balance, slot_machine.initial_balance]
             }
         )
         chart_data.sort_values(by=['Performance'])
