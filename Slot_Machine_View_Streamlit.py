@@ -15,7 +15,7 @@ def print_performance():
     st.bar_chart(chart_data, x="Performance", y="Money")
 
     if slot_machine.performance > 0:
-        text1 = 'Performance: :green[' + "{:.2f}".format((slot_machine.performance)) + '] % :sunglasses:'
+        text1 = 'Performance: :red[{slot_machine.performance:.2f}] % :sunglasses:'
         st.title(text1)
     else:
         text1 = f'Performance: :red[{slot_machine.performance:.2f}] % :sob:'
@@ -30,7 +30,6 @@ def make_deposit(initial):
         st.session_state['slot_machine'].current_balance += initial
 
     st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
-    print_performance()
 
 
 def play():
