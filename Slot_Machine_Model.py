@@ -91,7 +91,7 @@ class SlotMachine:
     def __calculate_balance(self):
         # Internal method that calculates the current_balance, 
         # the prize and the performance depending if the user won or lost this round
-        if legth(set(self.wheels_state)) == 1:
+        if len(set(self.wheels_state)) == 1:
             self.prize = self.bet * self.wheels[0].symbol_prize[self.wheels[0].current_symbol]
             self.current_balance += self.bet + self.prize
         else:
