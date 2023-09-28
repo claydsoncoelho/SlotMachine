@@ -10,6 +10,14 @@ performance_container = st.container()
 def translate_symbol():
     slot_machine = st.session_state['slot_machine']
     display = ''
+    new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ']
+    key_list = list(set(slot_machine.wheels_state))
+    symbols_dict = {}
+
+    for i in len(key_list):
+        symbols_dict[key_list[i]] = new_symbols[i]
+
+    st.title(symbols_dict)
 
     for i in range(slot_machine.number_of_wheels):
         if slot_machine.wheels[i].current_symbol == 'A':
@@ -17,7 +25,7 @@ def translate_symbol():
         elif slot_machine.wheels[i].current_symbol == 'B':
             display += ' :taco: '
         else:
-            display += ':watermelon:'
+            display += ' :watermelon: '
         
     return display
 
