@@ -22,7 +22,7 @@ def translate_symbol():
 def print_performance():
     slot_machine = st.session_state['slot_machine']
     
-    col2.write('Deposit: ' + str(slot_machine.initial_balance))
+    col1.write('Deposit: ' + str(slot_machine.initial_balance))
 
     if slot_machine.performance > 0:
         text1 = f'Performance: :green[{slot_machine.performance:.2f}] % :sunglasses:'
