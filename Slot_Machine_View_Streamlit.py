@@ -51,7 +51,7 @@ def play():
         st.title('Prize:' + str(slot_machine.prize))
         st.title('Balance: ' + str(slot_machine.current_balance))
     print_performance()
-        
+
 
 
 deposit = st.number_input('Deposit money')
