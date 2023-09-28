@@ -53,7 +53,7 @@ def play():
         st.title(translate_symbol())
         st.write('Prize:' + str(slot_machine.prize))
 
-    col3.write('Balance: ' + str(slot_machine.current_balance))
+    col2.write('Balance: ' + str(slot_machine.current_balance))
     print_performance()
 
 
