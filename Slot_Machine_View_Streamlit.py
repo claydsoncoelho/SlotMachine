@@ -11,7 +11,8 @@ def translate_symbol():
     slot_machine = st.session_state['slot_machine']
     display = ''
     new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ']
-    key_list = list(set(slot_machine.wheels_state))
+    key_list = list(set(slot_machine.wheels[0].symbol_list))
+    st.title(key_list)
     symbols_dict = {}
 
     for i in range(len(key_list)):
