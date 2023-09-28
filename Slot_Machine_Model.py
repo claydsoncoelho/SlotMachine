@@ -50,16 +50,6 @@ class Wheel:
             for i in range(item["Chance"]):
                 self.symbol_list.append(item["Symbol"])
 
-    def __eq__(self, other):
-        return self.current_symbol == other.current_symbol
-
-    def __mul__ (self, other: int):
-        result = []
-        if isinstance(other, int):
-            for i in range(other):
-                result.append('1')
-        return result
-
     def spin(self):
         self.current_symbol = random.choice(self.symbol_list)
 
@@ -81,7 +71,7 @@ class SlotMachine:
     def __init__(self, initial_balance: float, number_of_wheels: int):
         self.initial_balance = initial_balance
         self.current_balance = initial_balance
-        self.wheels = [Wheel * number_of_wheels]
+        self.wheels = [Wheel() for _ in range(number_of_wheels)]
         self.wheels_state: list = [str * number_of_wheels]
         self.prize = 0
         self.bet = 0
