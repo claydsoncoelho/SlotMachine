@@ -1,10 +1,14 @@
+# The Slot_Machine_Model is a fully operational slot machine. It is composed of 2 main classes:
+
 import os
 import csv
 import random
 
+# =================================================================================================
+# This block reads the csv file and returns a list of lines of the file. Each line is a dictionary.
+# The key is the column name and the value is the column contant for that specific line.
 
 FILE_NAME = os.getcwd() + "/Slot_Machine_Config.csv"
-
 
 def read_config_csv() -> list[dict]:
     config_list = []
@@ -23,14 +27,24 @@ def read_config_csv() -> list[dict]:
             writer = csv.DictWriter(config_file, fieldnames=field_names)
             writer.writeheader()
         return config_list
-
+# =================================================================================================
 
 class Wheel:
+    """
+    Class Wheel – A class that represents a single wheel. 
+    Attributes:
+        1 – symbol_list: The list of symbols printed on the wheel.
+        2 – symbol_prize: A dictionary with a pair Symbol: Prize. In other words, what is the Prize of each Symbol.
+        3 – current_symbol: Which Symbol from the symbol_list is showing now in the display of the that specific wheel.
+    Methods:
+        1 – spin(): This method spins the wheel, which will randomly pic another value from the symbol_list and show it in current_symbol.
+    """
     def __init__(self):
         self.symbol_list: list = []
         self.symbol_prize: dict = {}
         self.current_symbol: str = ''
 
+        # Creating the symbol_list and the symbol_prize based on the config file.
         for item in read_config_csv():
             self.symbol_prize[item["Symbol"]] = item["Prize"]
             for i in range(item["Chance"]):
@@ -44,6 +58,19 @@ class Wheel:
 
 
 class SlotMachine:
+    """
+    Class SlotMachine – A class that represents a fully functional slot machine.
+	Attributes:
+		1 – initial_balance: How much money the user deposited in the machine.
+		2 – current_balance: How much money the user has inside the machine.
+		3 – wheels: A list of 3 Wheels objects described above.
+		4 – wheels_state: A list of 3 current_symbols of the 3 wheels.
+		5 – prize: How much money the user won as a prize. It’s 0 if the user didn’t win on that round.
+		6 – bet: How much money the user bet on that round.
+    Methods:
+		1 – play(): This method spins all the 3 wheels of the slot machine, 
+          get the new current_symbol of each wheel and save them in wheels_state attribute.
+    """
     def __init__(self, initial_balance: float):
         self.initial_balance = initial_balance
         self.current_balance = initial_balance
@@ -64,6 +91,8 @@ class SlotMachine:
         self._bet = bet
 
     def __calculate_balance(self):
+        # Internal method that calculates the current_balance, 
+        # the prize and the performance depending if the user won or lost this round
         if self.wheels[0] == self.wheels[1] and self.wheels[1] == self.wheels[2]:
             self.prize = self.bet * self.wheels[0].symbol_prize[self.wheels[0].current_symbol]
             self.current_balance += self.bet + self.prize
@@ -73,6 +102,7 @@ class SlotMachine:
         self.performance = (self.current_balance - self.initial_balance) / self.initial_balance * 100
 
     def play_slot_machine(self) :
+        # Method that spins all 3 wheels, updates the wheels_state and calls the _calculate_balance.
         for i in range(3):
             self.wheels[i].spin()
             self.wheels_state[i] = self.wheels[i].current_symbol
