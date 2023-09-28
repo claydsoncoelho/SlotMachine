@@ -6,15 +6,15 @@ balance_container = st.container()
 
 def translate_symbol():
     slot_machine = st.session_state['slot_machine']
-    display = []
+    display = ''
 
     for i in range(3):
         if slot_machine.wheels[i].current_symbol == 'A':
-            display.append(' :four_leaf_clover: ')
+            display += ' :four_leaf_clover: '
         elif slot_machine.wheels[i].current_symbol == 'B':
-            display.append(' :taco: ')
+            display += ' :taco: '
         else:
-            display.append(':watermelon:')
+            display += ':watermelon:'
         
     return display
 
