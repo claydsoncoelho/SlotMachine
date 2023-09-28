@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import Slot_Machine_Model
 
+balance_container = st.container()
 
 def print_performance():
     slot_machine = st.session_state['slot_machine']
@@ -29,13 +30,11 @@ def make_deposit(initial):
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
 
-    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    balance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 def play():
     slot_machine = st.session_state['slot_machine']
-
-    st.title('Balance: ' + str(slot_machine.current_balance))
 
     if bet > slot_machine.current_balance:
         st.title('Bet cannot be bigger than balance!')
@@ -50,6 +49,8 @@ def play():
             st.title(text1)
 
         st.title('Prize:' + str(slot_machine.prize))
+
+    balance_container.write('Balance: ' + str(slot_machine.current_balance))
     print_performance()
 
 
