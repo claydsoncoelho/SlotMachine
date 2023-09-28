@@ -17,7 +17,7 @@ def translate_symbol():
     for i in range(len(key_list)):
         symbols_dict[key_list[i]] = new_symbols[i]
 
-    for symbol in slot_machine.wheels_state
+    for symbol in slot_machine.wheels_state:
         display += symbols_dict[symbol]
         
     return display
