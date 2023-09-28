@@ -5,5 +5,5 @@ deposit = 1
 deposit = st.number_input('Depisit money')
 st.write('The current balance is ', deposit)
 
-bet = st.slider('Bet amount', 0, 10, 0)
+bet = st.slider('Bet amount', 0, int(deposit), 0)
 st.write(bet)
