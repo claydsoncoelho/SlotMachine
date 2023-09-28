@@ -48,7 +48,7 @@ def play():
     slot_machine = st.session_state['slot_machine']
 
     if bet > slot_machine.current_balance:
-        st.write('Bet cannot be bigger than balance!')
+        st.error('Bet cannot be bigger than balance!')
     else:
         slot_machine.bet = bet
         slot_machine.play_slot_machine()
