@@ -79,7 +79,7 @@ class SlotMachine:
         self.prize = 0
         self.bet = 0
         self.performance = 100
-	    self.number_of_wheels = number_of_wheels
+        self.number_of_wheels = number_of_wheels
 
     @property
     def bet(self):
