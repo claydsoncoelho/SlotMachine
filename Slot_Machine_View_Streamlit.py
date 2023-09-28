@@ -46,9 +46,12 @@ def play():
             st.title(text1)
 
         st.title('Prize:' + str(slot_machine.prize))
-        st.title('Balance: ' + str(slot_machine.current_balance))
     print_performance()
 
+if 'slot_machine' in st.session_state:
+    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+else:
+    st.title('Balance: 0')
 
 # sidebar
 deposit = st.sidebar.number_input('Deposit money')
