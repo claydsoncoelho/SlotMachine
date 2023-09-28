@@ -14,14 +14,14 @@ slot_machine.bet = bet
 slot_machine.play_slot_machine()
 
 if slot_machine.prize > 0:
-    text1 = ':green[slot_machine.wheels] :sunglasses:'
-    text2 = 'Prize:' + slot_machine.prize
+    text1 = ':green[' + str(slot_machine.wheels) + '] :sunglasses:'
+    text2 = 'Prize:' + str(slot_machine.prize)
     st.title('_Streamlit_ is :blue[cool] :sunglasses:')
     st.title(text1)
     st.title(text2)
 else:
-    text1 = ':red[slot_machine.wheels] :sunglasses:'
-    text2 = 'Prize:' + slot_machine.prize
+    text1 = ':red[' + str(slot_machine.wheels) + '] :snob:'
+    text2 = 'Prize:' + str(slot_machine.prize)
     st.title('_Streamlit_ is :red[cool] :sunglasses:')
     st.title(text1)
     st.title(text2)
