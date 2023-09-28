@@ -23,6 +23,7 @@ def play():
 def create_slot_machine(initial):
     if 'slot_machine' not in st.session_state:
         st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(initial)
+    play()
 
 
 deposit = st.number_input('Deposit money')
