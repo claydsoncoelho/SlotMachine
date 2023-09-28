@@ -1,10 +1,14 @@
 import streamlit as st
 import Slot_Machine_Model
 
-deposit = st.number_input('Depisit money')
+slot_machine = Slot_Machine_Model.SlotMachine(100)
+
+def create_slot_machine():
+    st.write('clay')
+
+deposit = st.number_input('Depisit money', on_change='create_slot_machine')
 st.write('The current balance is ', deposit)
 
-slot_machine = Slot_Machine_Model.SlotMachine(float(deposit))
 
 bet = st.number_input('Bet amount')
 st.write('The current bet is ', bet)
