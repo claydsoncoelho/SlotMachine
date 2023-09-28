@@ -36,3 +36,6 @@ if 'slot_machine' in st.session_state:
         st.title(text2)
     
     st.write(slot_machine.current_balance)
+
+    if st.button('Reset'):
+        st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(deposit)
