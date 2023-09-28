@@ -75,7 +75,7 @@ class SlotMachine:
         self.initial_balance = initial_balance
         self.current_balance = initial_balance
         self.wheels = [Wheel(), Wheel(), Wheel()]
-        self.wheels_state: list = [str, str, str]
+        self.wheels_state: list = [str * 3]
         self.prize = 0
         self.bet = 0
         self.performance = 100
