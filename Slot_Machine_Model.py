@@ -53,10 +53,10 @@ class Wheel:
     def __eq__(self, other):
         return self.current_symbol == other.current_symbol
 
-    def __mul__ (self, other):
+    def __mul__ (self, other: int):
         result = []
         for i in range(other):
-            result.append(self)
+            result.append(Wheel())
         return result
 
     def spin(self):
