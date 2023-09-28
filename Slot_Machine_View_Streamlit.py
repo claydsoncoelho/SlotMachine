@@ -30,7 +30,7 @@ def make_deposit(initial):
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
 
-    balance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    balance_container.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 def play():
@@ -50,7 +50,7 @@ def play():
 
         st.title('Prize:' + str(slot_machine.prize))
 
-    balance_container.write('Balance: ' + str(slot_machine.current_balance))
+    balance_container.title('Balance: ' + str(slot_machine.current_balance))
     print_performance()
 
 
