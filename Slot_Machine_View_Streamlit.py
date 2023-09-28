@@ -1,5 +1,7 @@
 import streamlit as st
 
+deposit = 0
+
 deposit = st.number_input('Depisit money')
 st.write('The current balance is ', deposit)
 
