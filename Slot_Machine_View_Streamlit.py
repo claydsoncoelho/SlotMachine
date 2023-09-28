@@ -31,7 +31,7 @@ def play():
             st.title(text1)
             st.title(text2)
 
-            chart_data = pd.DataFrame(
+        chart_data = pd.DataFrame(
             {
                 "Deposit": 10,
                 "Balance": 20
