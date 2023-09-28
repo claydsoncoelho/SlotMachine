@@ -6,7 +6,7 @@ slot_machine = Slot_Machine_Model.SlotMachine(100)
 def create_slot_machine(initial):
     st.write(initial)
 
-deposit = st.number_input('Depisit money', on_change=create_slot_machine)
+deposit = st.number_input('Depisit money')
 if st.button('Deposit'):
     create_slot_machine(deposit)
 
