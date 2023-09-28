@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 import Slot_Machine_Model
 
-col1_controller, col2_controller = st.columns(2)
+controller_container = st.container()
+display_container = st.container()
+performance_container = st.conta()
 
 
 def translate_symbol():
@@ -19,17 +21,18 @@ def translate_symbol():
         
     return display
 
+
 def print_performance():
     slot_machine = st.session_state['slot_machine']
     
-    col1.write('Deposit: ' + str(slot_machine.initial_balance))
+    performance_container.write('Deposit: ' + str(slot_machine.initial_balance))
 
     if slot_machine.performance > 0:
         text1 = f'Performance: :green[{slot_machine.performance:.2f}] % :sunglasses:'
-        col3.write(text1)
+        performance_container.write(text1)
     else:
         text1 = f'Performance: :red[{slot_machine.performance:.2f}] % :sob:'
-        col3.write(text1)
+        performance_container.write(text1)
 
 
 def make_deposit(initial):
@@ -39,7 +42,7 @@ def make_deposit(initial):
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
 
-    col2.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    performance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 def play():
@@ -50,27 +53,27 @@ def play():
     else:
         slot_machine.bet = bet
         slot_machine.play_slot_machine()
-        st.title(translate_symbol())
-        st.write('Prize:' + str(slot_machine.prize))
+        display_container.title(translate_symbol())
+        display_container.write('Prize:' + str(slot_machine.prize))
 
-    col2.write('Balance: ' + str(slot_machine.current_balance))
+    performance_container.write('Balance: ' + str(slot_machine.current_balance))
     print_performance()
 
 col1, col2, col3 = st.columns(3)
 
 # addin objects to controller container
-deposit = col1_controller.number_input('Deposit money')
-if col2_controller.button('Deposit'):
+deposit = controller_container.number_input('Deposit money')
+if controller_container.button('Deposit'):
     make_deposit(deposit)
 
-bet = col1_controller.number_input('Bet amount')
+bet = controller_container.number_input('Bet amount')
 
-if col2_controller.button('Bet'):
+if controller_container.button('Bet'):
     play()
 
-if st.button('Reset'):
+if controller_container.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0)
-    col2.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
+    controller_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 
