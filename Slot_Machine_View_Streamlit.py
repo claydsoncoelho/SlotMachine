@@ -60,11 +60,11 @@ def play():
 
 
 # addin objects to controller container
-deposit = controller_container.number_input('Deposit money')
+deposit = controller_container.number_input('Deposit')
 if controller_container.button('Deposit'):
     make_deposit(deposit)
 
-bet = controller_container.number_input('Bet amount')
+bet = controller_container.number_input('Bet')
 
 if controller_container.button('Bet'):
     play()
