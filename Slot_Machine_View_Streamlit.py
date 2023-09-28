@@ -7,7 +7,7 @@ def make_deposit(initial):
     else:
         st.session_state['slot_machine'].initial_balance += initial
 
-    st.title('Balance: ' + str(slot_machine.current_balance))
+    st.title('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
 
 def play():
