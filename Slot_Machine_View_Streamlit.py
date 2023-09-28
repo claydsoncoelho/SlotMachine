@@ -20,7 +20,7 @@ def play():
         st.title(text1)
         st.title(text2)
 
-    st.title('Balance:', slot_machine.balance)
+    st.title('Balance:', slot_machine.current_balance)
 
 
 deposit = st.number_input('Deposit money')
