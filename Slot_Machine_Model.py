@@ -71,8 +71,8 @@ class SlotMachine:
     def __init__(self, initial_balance: float, number_of_wheels: int):
         self.initial_balance = initial_balance
         self.current_balance = initial_balance
-        self.wheels = [Wheel() for _ in range(number_of_wheels)]
-        self.wheels_state: list = [str * number_of_wheels]
+        self.wheels: list = [Wheel() for _ in range(number_of_wheels)]
+        self.wheels_state: list = ['' for _ in range(number_of_wheels)]
         self.prize = 0
         self.bet = 0
         self.performance = 100
