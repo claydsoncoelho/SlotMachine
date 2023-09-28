@@ -18,7 +18,7 @@ def print_performance():
         text1 = 'Performance: :green[' + "{:.2f}".format((slot_machine.performance)) + '] % :sunglasses:'
         st.title(text1)
     else:
-        text1 = 'Performance: :red[' + "{:.2f}".format((slot_machine.performance)) + '] % :sunglasses:'
+        text1 = f'Performance: :red[{slot_machine.performance}] % :sob:'
         st.title(text1)
 
 
