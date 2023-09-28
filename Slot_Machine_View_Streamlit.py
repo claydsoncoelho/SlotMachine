@@ -33,8 +33,8 @@ def play():
 
         chart_data = pd.DataFrame(
             {
-                "Deposit": 10,
-                "Balance": 20
+                "Deposit": [10],
+                "Balance": [20]
             }
         )
         st.bar_chart(chart_data, x="Deposit", y="Balance")
