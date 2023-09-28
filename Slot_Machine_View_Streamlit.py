@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import Slot_Machine_Model
+import random
 
 controller_container = st.container()
 display_container = st.container()
@@ -10,13 +11,15 @@ performance_container = st.container()
 def translate_symbol():
     slot_machine = st.session_state['slot_machine']
     display = ''
-    new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ']
+    new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ', ' :hot_pepper: ', ' :corn: ', ' :maple_leaf: ', ' :grapes: ', ' :peach: ']
     key_list = list(set(slot_machine.wheels[0].symbol_list))
     key_list.sort()
     symbols_dict = {}
 
     for i in range(len(key_list)):
-        symbols_dict[key_list[i]] = new_symbols[i]
+        symbols_dict[key_list[i]] = new_symbols.pop(random.choice(len(new_symbols)))
+    
+    st.title(symbols_dict)
 
     for symbol in slot_machine.wheels_state:
         display += symbols_dict[symbol]
