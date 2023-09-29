@@ -17,7 +17,9 @@ def translate_symbol():
     """
     slot_machine = st.session_state['slot_machine']
     display = ''
-    new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ', ' :hot_pepper: ', ' :corn: ', ' :maple_leaf: ', ' :grapes: ', ' :peach: ']
+    new_symbols = [' :four_leaf_clover: ', ' :taco: ', ' :watermelon: ', ' :hot_pepper: ', ' :corn: ', ' :maple_leaf: ', ' :grapes: ', 
+    ' :peach: ', ' :pizza: ', ' :doughnut: ', ' :cookie: ', ' :lollipop: ', ' :tropical_drink: ', ' :jack_o_lantern: ', 
+    ':christmas_tree:', ' :balloon: ', ' :trophy: ', ' :tropical_fish: ', ' :alien: ', ' :gem: ', ':bomb:', ':shit:']
     key_list = list(set(slot_machine.wheels[0].symbol_list))
     key_list.sort()
     symbols_dict = {}
