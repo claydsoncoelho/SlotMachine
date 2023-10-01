@@ -80,7 +80,7 @@ def play():
 deposit = controller_container.number_input('Deposit')
 if controller_container.button('Deposit'):
     make_deposit(deposit)
-    col2.title(' :four_leaf_clover: :taco: :watermelon: ')
+    col2.title(translate_symbol())
 
 bet = controller_container.number_input('Bet')
 
@@ -90,4 +90,5 @@ if controller_container.button('Bet'):
 if controller_container.button('Reset'):
     st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(0, 3)
     controller_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
-    col2.title(' :four_leaf_clover: :taco: :watermelon: ')
+    #col2.title(' :four_leaf_clover: :taco: :watermelon: ')
+    col2.title(translate_symbol())
