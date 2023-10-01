@@ -60,7 +60,6 @@ def make_deposit(initial):
     else:
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
-        col2.title(st.session_state['current_display'])
 
     performance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
