@@ -84,6 +84,8 @@ def play():
 deposit = controller_container.number_input('Deposit')
 if controller_container.button('Deposit'):
     make_deposit(deposit)
+    if 'current_display' in st.session_state:
+        col2.title(st.session_state['current_display'])
 
 bet = controller_container.number_input('Bet')
 
