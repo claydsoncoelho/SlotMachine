@@ -54,9 +54,11 @@ def print_performance():
 def make_deposit(initial):
     if 'slot_machine' not in st.session_state:
         st.session_state['slot_machine'] = Slot_Machine_Model.SlotMachine(initial, 3)
+        col2.title(translate_symbol())
     else:
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
+        col2.title(' :four_leaf_clover: :taco: :watermelon: ')
 
     performance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
