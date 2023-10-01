@@ -3,7 +3,6 @@ import Slot_Machine_Model
 import random
 
 col1, col2, col3 = st.columns(3)
-col2.title(' :four_leaf_clover: :taco: :watermelon: ')
 controller_container = st.container()
 display_container = st.container()
 performance_container = st.container()
