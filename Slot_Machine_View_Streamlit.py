@@ -60,8 +60,7 @@ def make_deposit(initial):
     else:
         st.session_state['slot_machine'].initial_balance += initial
         st.session_state['slot_machine'].current_balance += initial
-        temp = col2.title
-        col2.title(temp)
+        col2.title(st.session_state['current_display'])
 
     performance_container.write('Balance: ' + str(st.session_state['slot_machine'].current_balance))
 
@@ -82,11 +81,10 @@ def play():
     print_performance()
 
 
-# addin objects to controller container
+# adding objects to controller container
 deposit = controller_container.number_input('Deposit')
 if controller_container.button('Deposit'):
     make_deposit(deposit)
-    col2.title(st.session_state['current_display'])
 
 bet = controller_container.number_input('Bet')
 
