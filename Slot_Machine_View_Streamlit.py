@@ -2,6 +2,7 @@ import streamlit as st
 import Slot_Machine_Model
 import random
 
+col1, col2, col3 = st.columns(3)
 controller_container = st.container()
 display_container = st.container()
 performance_container = st.container()
@@ -68,7 +69,7 @@ def play():
     else:
         slot_machine.bet = bet
         slot_machine.play_slot_machine()
-        display_container.title(translate_symbol())
+        col2.title(translate_symbol())
         display_container.write('Prize: ' + str(slot_machine.prize))
 
     performance_container.write('Balance: ' + str(slot_machine.current_balance))
