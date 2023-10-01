@@ -80,7 +80,7 @@ def play():
 deposit = controller_container.number_input('Deposit')
 if controller_container.button('Deposit'):
     make_deposit(deposit)
-    col2.title(translate_symbol())
+    col2.title(' :four_leaf_clover: :taco: :watermelon: ')
 
 bet = controller_container.number_input('Bet')
 
