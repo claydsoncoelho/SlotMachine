@@ -50,8 +50,9 @@ def print_result(machine: Slot_Machine_Model.SlotMachine) -> None:
 
 
 if __name__ == '__main__':
+    NUMBER_OF_WHEELS = 3
     print("SLOT MACHINE")
-    slot_machine = Slot_Machine_Model.SlotMachine(make_deposit())
+    slot_machine = Slot_Machine_Model.SlotMachine(make_deposit(), NUMBER_OF_WHEELS)
     slot_machine.bet = make_bet(slot_machine.current_balance)
 
     while slot_machine.bet != 0 and slot_machine.current_balance > 0:
