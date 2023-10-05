@@ -81,7 +81,7 @@ def play():
 
 
 # adding objects to controller container
-deposit = controller_container.number_input('Deposit')
+deposit = controller_container.slider('Deposit', 0, 1000,1)
 if controller_container.button('Deposit'):
     make_deposit(deposit)
     if 'current_display' in st.session_state:
